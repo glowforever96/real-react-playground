@@ -1,7 +1,7 @@
-import ResizableDraggableSVG from './components/ResizableDraggableSVG';
+import { FetchComponent } from "./components/FetchComponent";
 
 function App() {
-  return <ResizableDraggableSVG />;
+  return <FetchComponent />;
 }
 
 export default App;
