@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export default function ResizableDraggableSVG() {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -24,6 +24,7 @@ export default function ResizableDraggableSVG() {
     const pos = getMousePosition(e.nativeEvent);
     dragStartPos.current = pos;
     console.log(dragStartPos.current);
+
     rectStartPos.current = { x: rect.x, y: rect.y };
     console.log(rectStartPos.current);
   };
@@ -34,7 +35,7 @@ export default function ResizableDraggableSVG() {
     setRect({
       ...rect,
       x: rectStartPos.current.x + (pos.x - dragStartPos.current.x),
-      y: rectStartPos.current.y + (pos.y - dragStartPos.current.y)
+      y: rectStartPos.current.y + (pos.y - dragStartPos.current.y),
     });
   };
 
@@ -44,16 +45,16 @@ export default function ResizableDraggableSVG() {
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('mousemove', handleDrag);
-      window.addEventListener('mouseup', handleEnd);
+      window.addEventListener("mousemove", handleDrag);
+      window.addEventListener("mouseup", handleEnd);
     } else {
-      window.removeEventListener('mousemove', handleDrag);
-      window.removeEventListener('mouseup', handleEnd);
+      window.removeEventListener("mousemove", handleDrag);
+      window.removeEventListener("mouseup", handleEnd);
     }
 
     return () => {
-      window.removeEventListener('mousemove', handleDrag);
-      window.removeEventListener('mouseup', handleEnd);
+      window.removeEventListener("mousemove", handleDrag);
+      window.removeEventListener("mouseup", handleEnd);
     };
   }, [isDragging]);
 
@@ -62,7 +63,8 @@ export default function ResizableDraggableSVG() {
       ref={svgRef}
       width="100%"
       height="300"
-      style={{ border: '1px solid black' }}>
+      style={{ border: "1px solid black" }}
+    >
       <rect
         x={rect.x}
         y={rect.y}
