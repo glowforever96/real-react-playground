@@ -1,7 +1,7 @@
-import { FetchComponent } from "./components/FetchComponent";
+import OpenClosedPage from "./components/확장 가능한 컴포넌트 만들기/page";
 
 function App() {
-  return <FetchComponent />;
+  return <OpenClosedPage />;
 }
 
 export default App;
