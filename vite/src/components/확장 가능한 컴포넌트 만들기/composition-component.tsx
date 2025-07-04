@@ -13,14 +13,18 @@ export const Card = ({
   renderFooter,
   className = "",
 }: CardProps) => (
-  <div className={`card ${className}`.trim()}>
+  <div
+    className={`bg-white rounded-lg shadow-md p-6 mb-4 border border-gray-200 ${className}`.trim()}
+  >
     {renderHeader ? (
       renderHeader(title)
     ) : (
-      <div className="card-header">{title}</div>
+      <div className="card-header text-lg font-semibold mb-2 text-gray-800">
+        {title}
+      </div>
     )}
-    <div className="card-content">{children}</div>
-    {renderFooter && renderFooter()}
+    <div className="card-content mb-2">{children}</div>
+    {renderFooter && <div className="mt-4">{renderFooter()}</div>}
   </div>
 );
 
@@ -43,7 +47,12 @@ export const ProductCard = ({
   <Card
     {...props}
     renderFooter={() => (
-      <button onClick={onAddToCart}>Add to Cart - ${product.price}</button>
+      <button
+        onClick={onAddToCart}
+        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"
+      >
+        Add to Cart - ${product.price}
+      </button>
     )}
   />
 );
